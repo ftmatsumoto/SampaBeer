@@ -4,6 +4,7 @@ const http = require('http');
 const path = require('path');
 
 // const db = require('./server/database/helper.js');
+const db = require('./server/database/helper.js');
 const handleRoutes = require('./server/routes/routes.js');
 const firebaseAdmin = require('./server/firebaseAdminSDK');
 
@@ -11,6 +12,7 @@ const app = express()
 
 app.use(express.static(path.join(__dirname, '/build')));
 app.use((req, res) => res.sendFile(path.join(__dirname, '/build/index.html')));
+
 //initialize a simple http server
 const server = http.createServer(app);
 
