@@ -24,6 +24,7 @@ class App extends Component {
     // history.push('/login');
     unsubscribe = auth.onAuthStateChanged((user) => {
       console.log('Auth State Changed');
+      this.props.createWSClient();
       if (user) {
         // user is signed in
         user.getIdToken(true).then((idToken) => {
@@ -33,7 +34,7 @@ class App extends Component {
             token: idToken,
             verified: user.emailVerified,
           });
-          this.props.createWSClient(idToken);
+          // this.props.createWSClient(idToken);
           return idToken;
         })
         .then(() => {

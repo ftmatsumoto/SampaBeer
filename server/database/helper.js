@@ -4,19 +4,26 @@ const db = require('./connect.js');
 const model = require('./model.js');
 
 module.exports = {
-  email: {
-    addEmail: addEmail
+  user: {
+    registerUser: registerUser
   }
 };
 
-function addEmail(email) {
-  let newEmail = new model.user({
+function registerUser(data) {
+  console.log(data);
+  let newRegister = new model.user({
     _id: new mongoose.Types.ObjectId,
-    email: email
+    full_name: data.fullname,
+    email: data.email,
+    birthday: data.bday,
+    allowed_by_spbeer: false,
+    // updated: { type: Date, default: Date.now },
+    // indicated_by: { type: Schema.Types.ObjectId, ref: 'User' },
+    // uid: { type: String }
   });
-  newEmail.save()
-    .then((err, email) => {
-      return email;
+  newRegister.save()
+    .then((err, user) => {
+      return user;
     });
 }
 

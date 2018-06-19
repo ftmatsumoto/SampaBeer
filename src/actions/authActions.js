@@ -1,25 +1,25 @@
 import { auth, googleProvider } from '../firebaseApp';
 import { LOGIN_ATTEMPT, LOGIN_ERROR, LOGOUT_ATTEMPT, REGISTER_ATTEMPT, REGISTER_ERROR } from './actionTypes';
 
-export function register(credentials) {
-  return (dispatch) => {
-    dispatch({
-      type: REGISTER_ATTEMPT
-    });
-    console.log(auth)
-    auth.createUserWithEmailAndPassword(credentials.usernameInput, credentials.passwordInput)
-      .then((user) => {
-        user.sendEmailVerification();
-      })
-      .catch((err) => {
-        console.log(err);
-        dispatch({
-          type: REGISTER_ERROR,
-          error: err
-        })
-      });
-  }
-}
+// export function register(credentials) {
+  // return (dispatch) => {
+  //   dispatch({
+  //     type: REGISTER_ATTEMPT
+  //   });
+  //   console.log(auth)
+  //   auth.createUserWithEmailAndPassword(credentials.usernameInput, credentials.passwordInput)
+  //     .then((user) => {
+  //       user.sendEmailVerification();
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       dispatch({
+  //         type: REGISTER_ERROR,
+  //         error: err
+  //       })
+  //     });
+  // }
+// }
 
 export function login(credentials) {
   return (dispatch) => {

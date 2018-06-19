@@ -1,7 +1,7 @@
 import * as firebase from 'firebase'
 
 const config = {
-  apiKey: "AIzaSyC7LdarlaicjSWgq8h3JcNA34Jl3Rrw-_A",
+  apiKey: "AIzaSyCwAqnLlXXERahM0qFm2ubE1rEMLCkEU34",
   authDomain: "sampabeer2018.firebaseapp.com",
   databaseURL: "https://sampabeer2018.firebaseio.com",
   projectId: "sampabeer2018",

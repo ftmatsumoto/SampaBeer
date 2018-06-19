@@ -1,4 +1,4 @@
-import { CLIENT_CONNECT } from '../actions/actionTypes';
+import { CLIENT_CONNECT, SEND_REGISTERFORM } from '../actions/actionTypes';
 
 let initialState = {
   socket: null
@@ -10,6 +10,10 @@ export default function uwsReducers(state = initialState, action) {
       return {
         ...state,
         socket: action.socket
+      }
+    case SEND_REGISTERFORM:
+      return {
+        ...state
       }
     default:
       return state

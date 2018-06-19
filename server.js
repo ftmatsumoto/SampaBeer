@@ -2,6 +2,7 @@ const express = require('express');
 const WebSocket = require('uws');
 const http = require('http');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 // const db = require('./server/database/helper.js');
 const db = require('./server/database/helper.js');
@@ -10,8 +11,29 @@ const firebaseAdmin = require('./server/firebaseAdminSDK');
 
 const app = express()
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static(path.join(__dirname, '/build')));
 app.use((req, res) => res.sendFile(path.join(__dirname, '/build/index.html')));
+
+// app.post('/register', (req, res) => {
+//   console.log('1111111111');
+//   console.log(req.body);
+  // db.email.findEmail(req.body.email)
+  //   .then((email) => {
+  //     let resObj = {};
+  //     if (email.length === 0) {
+  //       db.email.addEmail(req.body.email);
+  //       resObj.success = true;
+  //     } else {
+  //       resObj.success = false;
+  //     }
+  //     resObj.email = req.body.email;
+  //     res.status(201).json(resObj);
+  //     res.end();
+  //   });
+// });
 
 //initialize a simple http server
 const server = http.createServer(app);
@@ -39,7 +61,6 @@ const socket = new WebSocket.Server({
 });
 
 socket.on('connection', (client) => {
-
   client.isAlive = true;
   client.on('pong', () => {
     client.isAlive = true;
@@ -69,5 +90,5 @@ setInterval(() => {
 
 //start our server
 server.listen(process.env.PORT || 8128, () => {
-  console.log(`Server running on port ${server.address().port}`);
+  console.log(`Server running on localhost:${server.address().port}`);
 });

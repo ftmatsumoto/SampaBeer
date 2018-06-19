@@ -1,3 +1,4 @@
+const db = require('../database/helper.js');
 // const firebaseAdmin = require('../firebaseAdminSDK');
 
 module.exports = (socket, client) => {
@@ -29,8 +30,11 @@ module.exports = (socket, client) => {
   let messageJSON;
   client.on('message', (message) => {
     try {
-      console.log(message);
       messageJSON = JSON.parse(message);
+      if (messageJSON.type === '/register') {
+        console.log(messageJSON.data);
+        db.user.registerUser(messageJSON.data);
+      }
     } catch (e) {
       console.log('This doesn\'t look like a valid JSON: ', messageJSON.data);
       return;

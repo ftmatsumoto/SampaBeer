@@ -11,6 +11,7 @@ export const LOGOUT_SUCCESSFUL = 'LOGOUT_SUCCESSFUL';
 
 // Websocket Actions
 export const CLIENT_CONNECT = 'CLIENT_CONNECT';
+export const SEND_REGISTERFORM = 'SEND_REGISTERFORM';
 
 // Material UI Actions
 export const CHANGE_SIDEBAR = 'CHANGE_SIDEBAR';
