@@ -16,6 +16,7 @@ function registerUser(data) {
     full_name: data.fullname,
     email: data.email,
     birthday: data.bday,
+    telephone: data.telephone,
     allowed_by_spbeer: false,
     // updated: { type: Date, default: Date.now },
     // indicated_by: { type: Schema.Types.ObjectId, ref: 'User' },
