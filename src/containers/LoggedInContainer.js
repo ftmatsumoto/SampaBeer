@@ -10,8 +10,8 @@ import ProfileContainer from './ProfileContainer';
 import CarrinhoContainer from './CarrinhoContainer';
 import CreditoContainer from './CreditoContainer';
 
-import FooterLogged from '../components/FooterLogged';
-import TitleLogged from '../components/TitleLogged';
+import FooterLogged from '../components/footerLogged';
+import TitleLogged from '../components/titleLogged';
 
 import './LoggedInContainer.css';
 
