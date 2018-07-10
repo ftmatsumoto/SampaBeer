@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 
-import './TitleLogged.css';
+import './titleLogged.css';
 
 class TitleLogged extends Component {
   render() {
