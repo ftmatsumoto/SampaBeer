@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import AppBar from '../components/AppBar';
+import AppBar from '../components/appBar';
 import Sidebar from '../components/sidebar';
 import HomeContainer from './HomeContainer';
 import ProfileContainer from './ProfileContainer';
