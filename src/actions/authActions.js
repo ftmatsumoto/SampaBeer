@@ -1,5 +1,5 @@
 import { auth, googleProvider } from '../firebaseApp';
-import { LOGIN_ATTEMPT, LOGIN_ERROR, LOGOUT_ATTEMPT, REGISTER_ATTEMPT, REGISTER_ERROR } from './actionTypes';
+import { LOGIN_ATTEMPT, LOGIN_ERROR, LOGOUT_ATTEMPT } from './actionTypes';
 
 // export function register(credentials) {
   // return (dispatch) => {

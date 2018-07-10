@@ -16,7 +16,7 @@ export function sendRegisterForm(data, socket) {
     dispatch({
       type: SEND_REGISTERFORM
     });
-    let currContext = this;
+    // let currContext = this;
     if (true) {
       let dataStringify = JSON.stringify(data);
       socket.send(dataStringify);
@@ -32,8 +32,8 @@ export function getValidationState(data) {
     let telephone = data.telephoneValue;
     let bday = data.bdayValue;
 
-    let nameregex = /^([ \u00c0-\u01ffa-zA-Z'\-])+$/;
-    let emailregex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let nameregex = /^([ \u00c0-\u01ffa-zA-Z'-])+$/;
+    let emailregex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let telephoneregex = /^([0-9]{2,3})[ ]?([0-9]{4,5})[ ]?([0-9]{4})$/;
     if (fullname.length > 0 && email.length > 0 && telephone.length > 0) {
       if (emailregex.test(email) && nameregex.test(fullname) && telephoneregex.test(telephone) && bday !== null) {
