@@ -8,7 +8,7 @@ import './App.css';
 import { auth } from '../firebaseApp';
 import { LOGIN_SUCCESSFUL, LOGOUT_SUCCESSFUL } from '../actions/actionTypes';
 
-import PrivateRoute from '../components/PrivateRoute';
+import PrivateRoute from '../components/privateRoute';
 import LoginForm from '../components/loginForm';
 import RegisterForm from '../components/registerForm';
 import LoggedInContainer from './LoggedInContainer';
