@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 
-import './FooterLogged.css';
+import './footerLogged.css';
 
 class FooterLogged extends Component {
   render() {
