@@ -6,7 +6,7 @@ if (process.env.FIREBASE_PVT_KEY_ID) {
     "type": "service_account",
     "project_id": "sampabeer2018",
     "private_key_id": process.env.FIREBASE_PVT_KEY_ID,
-    "private_key": process.env.FIREBASE_PVT_KEY,
+    "private_key": JSON.parse(process.env.FIREBASE_PVT_KEY),
     "client_email": process.env.FIREBASE_CLIENT_EMAIL,
     "client_id": process.env.FIREBASE_CLIENT_ID,
     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
