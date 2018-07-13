@@ -3,18 +3,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link, withRouter } from 'react-router-dom';
 
-import AppBar from '@material-ui/AppBar';
+import AppBar from '@material-ui/core/AppBar';
 
-import IconMenu from '@material-ui/IconMenu';
-import IconButton from '@material-ui/IconButton';
-import MoreVertIcon from '@material-ui/svg-icons/navigation/more-vert';
-import ShoppingCartIcon from '@material-ui/svg-icons/action/shopping-cart';
-import MenuItem from '@material-ui/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import IconButton from '@material-ui/core/IconButton';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import { logout } from '../actions/authActions';
 import { changeSidebar } from '../actions/muiActions';
 
-import {white} from 'material-ui/styles/colors';
+// import white from '@material-ui/core/colors/white';
 
 class appBarContainer extends Component {
   render() {
@@ -22,16 +21,13 @@ class appBarContainer extends Component {
     const rightButton = (
       <div>
         <IconButton
-          onClick={() => {
-            history.push(`${match.url}/carrinho`);
-          }}
+          aria-label="More"
+          aria-haspopup="true"
+          // onClick={this.handleClick}
         >
-          <ShoppingCartIcon color={white}/>
+          <MoreVertIcon />
         </IconButton>
-        <IconMenu
-          iconButtonElement={
-            <IconButton><MoreVertIcon color={white}/></IconButton>
-          }
+        <Menu
           targetOrigin={{horizontal: 'right', vertical: 'top'}}
           anchorOrigin={{horizontal: 'right', vertical: 'top'}}
         >
@@ -49,7 +45,7 @@ class appBarContainer extends Component {
               this.props.logout();
             }}
           />
-        </IconMenu>
+        </Menu>
       </div>
     );
     return (
