@@ -17,7 +17,7 @@ import { changeSidebar } from '../actions/muiActions';
 
 class appBarContainer extends Component {
   render() {
-    const { match, history } = this.props;
+    const { match } = this.props;
     const rightButton = (
       <div>
         <IconButton
