@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
+import Drawer from '@material-ui/Drawer';
+import MenuItem from '@material-ui/MenuItem';
 
 import { changeSidebar, closeSidebar } from '../actions/muiActions';
 

@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link, withRouter } from 'react-router-dom';
 
-import AppBar from 'material-ui/AppBar';
+import AppBar from '@material-ui/AppBar';
 
-import IconMenu from 'material-ui/IconMenu';
-import IconButton from 'material-ui/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import ShoppingCartIcon from 'material-ui/svg-icons/action/shopping-cart';
-import MenuItem from 'material-ui/MenuItem';
+import IconMenu from '@material-ui/IconMenu';
+import IconButton from '@material-ui/IconButton';
+import MoreVertIcon from '@material-ui/svg-icons/navigation/more-vert';
+import ShoppingCartIcon from '@material-ui/svg-icons/action/shopping-cart';
+import MenuItem from '@material-ui/MenuItem';
 
 import { logout } from '../actions/authActions';
 import { changeSidebar } from '../actions/muiActions';
