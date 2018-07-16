@@ -22,3 +22,7 @@ export const OPEN_EVENT_DIALOG = 'OPEN_EVENT_DIALOG';
 export const CLOSE_EVENT_DIALOG = 'CLOSE_EVENT_DIALOG';
 
 export const WINDOW_RESIZE = 'WINDOW_RESIZE';
+
+// Login / Register form Actions
+export const HANDLE_CHANGE = 'HANDLE_CHANGE';
+
