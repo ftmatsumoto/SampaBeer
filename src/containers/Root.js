@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { Router, Route } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
 
-// import injectTapEventPlugin from 'react-tap-event-plugin';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
 // import { cyan500 } from 'material-ui/styles/colors';
@@ -13,7 +13,7 @@ import App from './App'
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
-// injectTapEventPlugin();
+injectTapEventPlugin();
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
