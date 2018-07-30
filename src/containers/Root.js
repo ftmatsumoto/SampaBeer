@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import { Router, Route } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
+import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
+import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -32,11 +34,13 @@ const history = createHistory();
 
 const Root = ({ store }) => (
   // <MuiThemeProvider muiTheme={muiTheme}>
-    <Provider store={store}>
-      <Router history={history}>
-        <Route path="/" component={App} />
-      </Router>
-    </Provider>
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <Provider store={store}>
+        <Router history={history}>
+          <Route path="/" component={App} />
+        </Router>
+      </Provider>
+    </MuiPickersUtilsProvider>
   // </MuiThemeProvider>
 )
 

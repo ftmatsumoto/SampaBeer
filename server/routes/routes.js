@@ -29,10 +29,11 @@ module.exports = (socket, client) => {
 
   let messageJSON;
   client.on('message', (message) => {
+    // console.log(message);
     try {
       messageJSON = JSON.parse(message);
       if (messageJSON.type === '/register') {
-        console.log(messageJSON.data);
+        // console.log(messageJSON.data);
         db.user.registerUser(messageJSON.data);
       }
     } catch (e) {

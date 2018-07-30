@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 import { login } from '../actions/authActions';
 import { handleChange } from '../actions/loginregisterActions';
@@ -13,14 +14,14 @@ class LoginContainer extends Component {
   render() {
     return (
       <div className="LoginFormContainer">
-        <form className="LoginForm">
+        <div className="LoginForm">
           <TextField
             id="username-input"
             label="Username"
             value={this.props.username}
             onChange={this.props.handleChange.bind(this, 'username')}
-            margin="normal"
           />
+          <br/>
           <TextField
             id="password-input"
             label="Password"
@@ -28,20 +29,22 @@ class LoginContainer extends Component {
             autoComplete="current-password"
             value={this.props.password}
             onChange={this.props.handleChange.bind(this, 'password')}
-            margin="normal"
           />
-          <button onClick={() => {
+          <br/>
+          <Button
+            variant="outlined"
+            onClick={() => {
             this.props.login({
               usernameInput: this.props.username,
               passwordInput: this.props.password
             });
           }}>
             Login
-          </button>
-          <ul>
-            <li><Link to="/register">Sign up</Link></li>
-          </ul>
-        </form>
+          </Button>
+          <div>
+            <Link to="/register">Sign up</Link>
+          </div>
+        </div>
       </div>
     );
   }
@@ -49,8 +52,8 @@ class LoginContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    username: state.username,
-    password: state.password
+    username: state.loginregister.username,
+    password: state.loginregister.password
   }
 }
 

@@ -23,12 +23,13 @@ import { LOGIN_ATTEMPT, LOGIN_ERROR, LOGOUT_ATTEMPT } from './actionTypes';
 
 export function login(credentials) {
   return (dispatch) => {
+    // alert(credentials.usernameInput, credentials.passwordInput);
     dispatch({
       type: LOGIN_ATTEMPT
     });
     auth.signInWithEmailAndPassword(credentials.usernameInput, credentials.passwordInput)
       .catch((err) => {
-        console.log(err);
+        alert(err);
         dispatch({
           type: LOGIN_ERROR,
           error: err

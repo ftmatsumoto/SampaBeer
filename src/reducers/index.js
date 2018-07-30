@@ -10,7 +10,7 @@ import loginregisterReducers from './loginregisterReducers';
 const sbReducers = combineReducers({
   auth: authReducers,
   browser: responsiveStateReducer,
-  loginregisterReducers: loginregisterReducers,
+  loginregister: loginregisterReducers,
   responsive: responsiveReducers,
   mui: muiReducers,
   uws: uwsReducers

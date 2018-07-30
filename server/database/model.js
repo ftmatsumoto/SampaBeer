@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  full_name: {type: String, required: true, unique: true},
+  full_name: {type: String, required: true, unique: false},
   email: {type: String, required: true, unique: true},
-  birthday: {type: String, required: true, unique: false}, // change to date
+  birthday: {type: Date, required: true, unique: false}, // change to date
   telephone: {type: String, required: true, unique: false}, // change to date
   updated: { type: Date, default: Date.now },
   indicated_by: { type: Schema.Types.ObjectId, ref: 'User' },
