@@ -1,7 +1,8 @@
 import { CLIENT_CONNECT } from './actionTypes';
 
 export function createWSClient(token) {
-  const ws = new WebSocket('ws://localhost:8128/' + token);
+  let port = process.env.PORT || '8128/';
+  const ws = new WebSocket('ws://localhost:' + port + token);
 
   return (dispatch) => {
     dispatch({
