@@ -106,7 +106,7 @@ function mapStateToProps(state) {
     emailError: state.loginregister.emailError,
     bdayError: state.loginregister.bdayError,
     telephoneError: state.loginregister.telephoneError,
-    socket: state.uws.socket
+    socket: state.ws.socket
   }
 }
 

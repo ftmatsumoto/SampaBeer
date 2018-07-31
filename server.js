@@ -1,5 +1,5 @@
 const express = require('express');
-const WebSocket = require('uws');
+const WebSocket = require('ws');
 const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -62,7 +62,7 @@ socket.on('connection', (client) => {
 });
 
 setInterval(() => {
-  console.log(socket.clients);
+  // console.log(socket.clients);
   socket.clients.forEach((client) => {
     if (!client.isAlive) return client.terminate();
     client.isAlive = false;

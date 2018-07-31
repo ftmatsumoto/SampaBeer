@@ -22,9 +22,14 @@ function registerUser(data) {
     // indicated_by: { type: Schema.Types.ObjectId, ref: 'User' },
     // uid: { type: String }
   });
-  newRegister.save()
-    .then((err, user) => {
+  return newRegister.save()
+    .then((user) => {
       return user;
-    });
+    }, (err) => {
+      return err;
+    })
+    // .catch((err) => {
+    //   return err;
+    // });
 }
 

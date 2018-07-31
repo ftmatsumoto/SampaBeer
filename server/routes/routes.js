@@ -34,7 +34,11 @@ module.exports = (socket, client) => {
       messageJSON = JSON.parse(message);
       if (messageJSON.type === '/register') {
         // console.log(messageJSON.data);
-        db.user.registerUser(messageJSON.data);
+        db.user.registerUser(messageJSON.data)
+          .then((result) => {
+            console.log(result);
+            return result;
+          })
       }
     } catch (e) {
       console.log('This doesn\'t look like a valid JSON: ', messageJSON.data);

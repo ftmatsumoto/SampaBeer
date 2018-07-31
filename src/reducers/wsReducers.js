@@ -4,7 +4,7 @@ let initialState = {
   socket: null
 }
 
-export default function uwsReducers(state = initialState, action) {
+export default function wsReducers(state = initialState, action) {
   switch (action.type) {
     case CLIENT_CONNECT:
       return {

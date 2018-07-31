@@ -13,7 +13,7 @@ import LoginForm from '../components/loginForm';
 import RegisterForm from '../components/registerForm';
 import LoggedInContainer from './LoggedInContainer';
 
-import { createWSClient } from '../actions/uwsActions';
+import { createWSClient } from '../actions/wsActions';
 
 let unsubscribe;
 
@@ -68,7 +68,7 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     authenticated: state.auth.authenticated,
-    socket: state.uws.socket
+    socket: state.ws.socket
   };
 }
 

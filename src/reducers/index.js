@@ -3,7 +3,7 @@ import { responsiveStateReducer } from 'redux-responsive'
 
 import authReducers from './authReducers';
 import muiReducers from './muiReducers';
-import uwsReducers from './uwsReducers';
+import wsReducers from './wsReducers';
 import responsiveReducers from './responsiveReducers';
 import loginregisterReducers from './loginregisterReducers';
 
@@ -13,7 +13,7 @@ const sbReducers = combineReducers({
   loginregister: loginregisterReducers,
   responsive: responsiveReducers,
   mui: muiReducers,
-  uws: uwsReducers
+  ws: wsReducers
 })
 
 export default sbReducers
