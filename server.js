@@ -71,6 +71,7 @@ setInterval(() => {
 }, 30000);
 
 //start our server
+// console.log(process.env.PORT);
 server.listen(process.env.PORT || 8128, () => {
   console.log(`Server running on localhost:${server.address().port}`);
 });
