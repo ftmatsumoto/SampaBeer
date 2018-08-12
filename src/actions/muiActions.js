@@ -1,4 +1,13 @@
-import { CHANGE_SIDEBAR, CLOSE_SIDEBAR, OPEN_EVENT_DIALOG, CLOSE_EVENT_DIALOG } from './actionTypes';
+import { CHANGE_SIDEBAR, CLOSE_SIDEBAR, OPEN_EVENT_DIALOG, CLOSE_EVENT_DIALOG, TOGGLE_SIDEBAR } from './actionTypes';
+
+export function toggleSidebar(currentState) {
+  return (dispatch) => {
+    dispatch({
+      type: TOGGLE_SIDEBAR,
+      nextState: !currentState
+    });
+  }
+}
 
 export function changeSidebar(open) {
   return (dispatch) => {

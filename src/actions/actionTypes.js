@@ -15,6 +15,7 @@ export const SEND_REGISTERFORM = 'SEND_REGISTERFORM';
 export const VALIDATE_FORM = 'VALIDATE_FORM';
 
 // Material UI Actions
+export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 export const CHANGE_SIDEBAR = 'CHANGE_SIDEBAR';
 export const CLOSE_SIDEBAR = 'CLOSE_SIDEBAR';
 

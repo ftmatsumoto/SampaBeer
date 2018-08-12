@@ -1,4 +1,4 @@
-import { CHANGE_SIDEBAR, CLOSE_SIDEBAR, OPEN_EVENT_DIALOG, CLOSE_EVENT_DIALOG } from '../actions/actionTypes';
+import { CHANGE_SIDEBAR, CLOSE_SIDEBAR, OPEN_EVENT_DIALOG, CLOSE_EVENT_DIALOG, TOGGLE_SIDEBAR } from '../actions/actionTypes';
 
 let initialState = {
   sidebarOpen: false
@@ -6,6 +6,11 @@ let initialState = {
 
 export default function muiReducers(state = initialState, action) {
   switch (action.type) {
+    case TOGGLE_SIDEBAR:
+      return {
+        ...state,
+        sidebarOpen: action.nextState
+      }
     case CHANGE_SIDEBAR:
       return {
         ...state,
