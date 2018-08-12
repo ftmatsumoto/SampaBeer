@@ -13,6 +13,7 @@ import Divider from '@material-ui/core/Divider';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 
+import { logout } from '../actions/authActions';
 import { toggleSidebar } from '../actions/muiActions';
 
 class Sidebar extends Component {
