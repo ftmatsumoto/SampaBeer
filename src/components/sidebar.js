@@ -27,26 +27,29 @@ class Sidebar extends Component {
             onKeyDown={() => {this.props.toggleSidebar(this.props.sidebarOpen)}}
           >
             <List component="nav">
-              <ListItem button>
+              <ListItem button component={Link} to="/cervejas">
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Inbox" />
+                <ListItemText primary="Cervejas" />
               </ListItem>
-              <ListItem button>
+              <ListItem button component={Link} to="/carrinho">
                 <ListItemIcon>
                   <DraftsIcon />
                 </ListItemIcon>
-                <ListItemText primary="Drafts" />
+                <ListItemText primary="Carrinho" />
+              </ListItem>
+              <ListItem button component={Link} to="/perfil">
+                <ListItemIcon>
+                  <DraftsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Perfil" />
               </ListItem>
             </List>
             <Divider />
             <List component="nav">
               <ListItem button>
-                <ListItemText primary="Trash" />
-              </ListItem>
-              <ListItem button component="a" href="#simple-list">
-                <ListItemText primary="Spam" />
+                <ListItemText primary="Logout" />
               </ListItem>
             </List>
           </div>
@@ -65,6 +68,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
+    logout: logout,
     toggleSidebar: toggleSidebar
   }, dispatch);
 }
