@@ -8,10 +8,10 @@ import Sidebar from '../components/sidebar';
 import HomeContainer from './HomeContainer';
 import ProfileContainer from './ProfileContainer';
 import CarrinhoContainer from './CarrinhoContainer';
-import CreditoContainer from './CreditoContainer';
+import ProdutoContainer from './CreditoContainer';
 
 import FooterLogged from '../components/footerLogged';
-import TitleLogged from '../components/titleLogged';
+// import TitleLogged from '../components/titleLogged';
 
 import './LoggedInContainer.css';
 
@@ -20,13 +20,13 @@ class LoggedInContainer extends Component {
     return (
       <div>
         <AppBar />
-        <Sidebar />
-        <TitleLogged />
+        {/*<Sidebar />*/}
+        {/*<TitleLogged />*/}
         <div className="LoggedInContainer">
           <Route exact path='/home' component={HomeContainer} />
-          <Route path='/home/profile' component={ProfileContainer} />
-          <Route path='/home/carrinho' component={CarrinhoContainer} />
-          <Route path='/home/credito' component={CreditoContainer} />
+          <Route path='/cervejas' component={ProdutoContainer} />
+          <Route path='/perfil' component={ProfileContainer} />
+          <Route path='/carrinho' component={CarrinhoContainer} />
         </div>
         <FooterLogged />
       </div>

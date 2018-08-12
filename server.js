@@ -62,7 +62,7 @@ socket.on('connection', (client) => {
 });
 
 setInterval(() => {
-  // console.log(socket.clients);
+  console.log('ping');
   socket.clients.forEach((client) => {
     if (!client.isAlive) return client.terminate();
     client.isAlive = false;
