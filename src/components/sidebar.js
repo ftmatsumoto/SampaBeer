@@ -4,60 +4,52 @@ import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 
 import Drawer from '@material-ui/core/Drawer';
-import MenuItem from '@material-ui/core/MenuItem';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 
-import { changeSidebar, closeSidebar } from '../actions/muiActions';
+import Divider from '@material-ui/core/Divider';
+import InboxIcon from '@material-ui/icons/Inbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
+
+import { toggleSidebar } from '../actions/muiActions';
 
 class Sidebar extends Component {
   render() {
-    const { match, history } = this.props;
-
     return (
       <div className="Sidebar">
-        <Drawer
-          open={this.props.browser.lessThan.medium ? this.props.sidebarOpen : true}
-          docked={!this.props.browser.lessThan.medium}
-          onRequestChange={
-            (open) => {
-              this.props.changeSidebar(open);
-            }
-          }
-        >
+        <Drawer open={this.props.sidebarOpen} onClose={() => {this.props.toggleSidebar(true)}}>
           <div
-            onClick={() => {
-              history.push(`${match.url}`);
-            }}
-            style={{
-              height: '64px',
-              lineHeight: '64px',
-              fontSize: '24px',
-              fontWeight: '300',
-              backgroundColor: 'rgb(0, 188, 212)',
-              color: 'rgb(255, 255, 255)',
-              cursor: 'pointer',
-              paddingLeft: '24px',
-            }}
+            tabIndex={0}
+            role="button"
+            onClick={() => {this.props.toggleSidebar(this.props.sidebarOpen)}}
+            onKeyDown={() => {this.props.toggleSidebar(this.props.sidebarOpen)}}
           >
-            SampaBeerCo
+            <List component="nav">
+              <ListItem button>
+                <ListItemIcon>
+                  <InboxIcon />
+                </ListItemIcon>
+                <ListItemText primary="Inbox" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <DraftsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Drafts" />
+              </ListItem>
+            </List>
+            <Divider />
+            <List component="nav">
+              <ListItem button>
+                <ListItemText primary="Trash" />
+              </ListItem>
+              <ListItem button component="a" href="#simple-list">
+                <ListItemText primary="Spam" />
+              </ListItem>
+            </List>
           </div>
-          <MenuItem
-            onClick={this.props.closeSidebar}
-            containerElement={<Link to={`${match.url}`} />}
-          >
-            Cervejas
-          </MenuItem>
-          <MenuItem
-            onClick={this.props.closeSidebar}
-            containerElement={<Link to={`${match.url}/credito`} />}
-          >
-            Crédito
-          </MenuItem>
-          <MenuItem
-            onClick={this.props.closeSidebar}
-            containerElement={<Link to={`${match.url}/carrinho`} />}
-          >
-            Carrinho
-          </MenuItem>
         </Drawer>
       </div>
     );
@@ -73,8 +65,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    changeSidebar: changeSidebar,
-    closeSidebar: closeSidebar
+    toggleSidebar: toggleSidebar
   }, dispatch);
 }
 

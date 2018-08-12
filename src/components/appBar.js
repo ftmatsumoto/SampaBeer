@@ -10,22 +10,22 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+// import Drawer from '@material-ui/core/Drawer';
+// import List from '@material-ui/core/List';
+// import ListItem from '@material-ui/core/ListItem';
+// import ListItemIcon from '@material-ui/core/ListItemIcon';
+// import ListItemText from '@material-ui/core/ListItemText';
 
 import { withStyles } from '@material-ui/core/styles';
 
-import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
+// import Divider from '@material-ui/core/Divider';
+// import InboxIcon from '@material-ui/icons/Inbox';
+// import DraftsIcon from '@material-ui/icons/Drafts';
 // import Menu from '@material-ui/core/Menu';
 // import IconButton from '@material-ui/core/IconButton';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
 // import MenuItem from '@material-ui/core/MenuItem';
-
+import Sidebar from './sidebar';
 import { logout } from '../actions/authActions';
 import { toggleSidebar } from '../actions/muiActions';
 
@@ -87,39 +87,8 @@ class appBar extends Component {
                 <IconButton className={styles.menuButton} color="inherit" aria-label="Menu">
                   <MenuIcon onClick={() => {this.props.toggleSidebar(this.props.sidebarOpen)}}/>
                 </IconButton>
-                {console.log(this.props.sidebarOpen)}
-                <Drawer open={this.props.sidebarOpen} onClose={() => {this.props.toggleSidebar(true)}}>
-                  <div
-                    tabIndex={0}
-                    role="button"
-                    onClick={() => {this.props.toggleSidebar(this.props.sidebarOpen)}}
-                    onKeyDown={() => {this.props.toggleSidebar(this.props.sidebarOpen)}}
-                  >
-                    <List component="nav">
-                      <ListItem button>
-                        <ListItemIcon>
-                          <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Inbox" />
-                      </ListItem>
-                      <ListItem button>
-                        <ListItemIcon>
-                          <DraftsIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Drafts" />
-                      </ListItem>
-                    </List>
-                    <Divider />
-                    <List component="nav">
-                      <ListItem button>
-                        <ListItemText primary="Trash" />
-                      </ListItem>
-                      <ListItem button component="a" href="#simple-list">
-                        <ListItemText primary="Spam" />
-                      </ListItem>
-                    </List>
-                  </div>
-                </Drawer>
+                {/*console.log(this.props.sidebarOpen)*/}
+                <Sidebar />
               </div>
             )}
             <Typography
