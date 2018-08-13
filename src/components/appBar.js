@@ -55,9 +55,10 @@ class appBar extends Component {
             </Typography>
             {!this.props.browser.lessThan.medium && (
               <div>
-                <Button color="inherit" component={Link} to="/cervejas">Cervejas</Button>
-                <Button color="inherit" component={Link} to="/carrinho">Carrinho</Button>
-                <Button color="inherit" component={Link} to="/perfil">Perfil</Button>
+                <Button color="inherit" component={Link} to="/home/cervejas">Cervejas</Button>
+                <Button color="inherit" component={Link} to="/home/carrinho">Carrinho</Button>
+                <Button color="inherit" component={Link} to="/home/perfil">Perfil</Button>
+                <Button color="inherit" onClick={() => {this.props.logout()}}>Logout</Button>
               </div>
             )}
           </Toolbar>

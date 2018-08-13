@@ -14,6 +14,7 @@ class LoginContainer extends Component {
   render() {
     return (
       <div className="LoginFormContainer">
+        {console.log('LOGIN FORM')}
         <div className="LoginForm">
           <TextField
             id="username-input"

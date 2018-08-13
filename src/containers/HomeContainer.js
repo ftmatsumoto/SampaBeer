@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-class LoggedContainer extends Component {
+class HomeContainer extends Component {
   render() {
     let message = `HOME - The viewport's current media type is: ${this.props.browser.mediaType}.`
 
@@ -16,7 +16,7 @@ class LoggedContainer extends Component {
     }
 
     return (
-      <div className="LoggedContainer">
+      <div className="HomeContainer">
         Welcome {this.props.email}!<br/>
         {message}
       </div>
@@ -35,4 +35,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({}, dispatch);
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoggedContainer));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeContainer));

@@ -1,12 +1,15 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
-import { Router, Route } from 'react-router-dom'
-import createHistory from 'history/createBrowserHistory'
+import { Route } from 'react-router-dom'
+import { ConnectedRouter } from 'connected-react-router'
+
+// import createHistory from 'history/createBrowserHistory'
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
 // import { cyan500 } from 'material-ui/styles/colors';
@@ -17,8 +20,8 @@ import App from './App'
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-// Create a history of your choosing (we're using a browser history in this case)
-const history = createHistory();
+// // Create a history of your choosing (we're using a browser history in this case)
+// const history = createHistory();
 
 // This replaces the textColor value on the palette
 // and then update the keys for each component that depends on it.
@@ -32,13 +35,13 @@ const history = createHistory();
   // },
 // });
 
-const Root = ({ store }) => (
+const Root = ({ store, history }) => (
   // <MuiThemeProvider muiTheme={muiTheme}>
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Provider store={store}>
-        <Router history={history}>
+        <ConnectedRouter history={history}>
           <Route path="/" component={App} />
-        </Router>
+        </ConnectedRouter>
       </Provider>
     </MuiPickersUtilsProvider>
   // </MuiThemeProvider>

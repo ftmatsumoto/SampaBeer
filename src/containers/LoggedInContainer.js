@@ -4,14 +4,12 @@ import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
 import AppBar from '../components/appBar';
-// import Sidebar from '../components/sidebar';
+import FooterLogged from '../components/footerLogged';
+
 import HomeContainer from './HomeContainer';
+import ProdutoContainer from './ProdutoContainer';
 import ProfileContainer from './ProfileContainer';
 import CarrinhoContainer from './CarrinhoContainer';
-import ProdutoContainer from './CreditoContainer';
-
-import FooterLogged from '../components/footerLogged';
-// import TitleLogged from '../components/titleLogged';
 
 import './LoggedInContainer.css';
 
@@ -20,13 +18,11 @@ class LoggedInContainer extends Component {
     return (
       <div>
         <AppBar />
-        {/*<Sidebar />*/}
-        {/*<TitleLogged />*/}
         <div className="LoggedInContainer">
           <Route exact path='/home' component={HomeContainer} />
-          <Route path='/cervejas' component={ProdutoContainer} />
-          <Route path='/perfil' component={ProfileContainer} />
-          <Route path='/carrinho' component={CarrinhoContainer} />
+          <Route path='/home/cervejas' component={ProdutoContainer} />
+          <Route path='/home/perfil' component={ProfileContainer} />
+          <Route path='/home/carrinho' component={CarrinhoContainer} />
         </div>
         <FooterLogged />
       </div>

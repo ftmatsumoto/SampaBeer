@@ -28,19 +28,19 @@ class Sidebar extends Component {
             onKeyDown={() => {this.props.toggleSidebar(this.props.sidebarOpen)}}
           >
             <List component="nav">
-              <ListItem button component={Link} to="/cervejas">
+              <ListItem button component={Link} to="/home/cervejas">
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
                 <ListItemText primary="Cervejas" />
               </ListItem>
-              <ListItem button component={Link} to="/carrinho">
+              <ListItem button component={Link} to="/home/carrinho">
                 <ListItemIcon>
                   <DraftsIcon />
                 </ListItemIcon>
                 <ListItemText primary="Carrinho" />
               </ListItem>
-              <ListItem button component={Link} to="/perfil">
+              <ListItem button component={Link} to="/home/perfil">
                 <ListItemIcon>
                   <DraftsIcon />
                 </ListItemIcon>
@@ -49,7 +49,7 @@ class Sidebar extends Component {
             </List>
             <Divider />
             <List component="nav">
-              <ListItem button>
+              <ListItem button onClick={() => {this.props.logout()}}>
                 <ListItemText primary="Logout" />
               </ListItem>
             </List>

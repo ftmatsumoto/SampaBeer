@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
 class PrivateRoute extends Component {
+
   render() {
     const { component: Component, location, ...rest } = this.props
-    // console.log(this.props);
+    console.log('PRIVATE ROUTE', this.props.authenticated);
     return (
       <Route {...rest}  render={(props) => {
           return this.props.authenticated ? (

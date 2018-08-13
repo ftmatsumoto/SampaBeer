@@ -1,5 +1,7 @@
 import { auth, googleProvider } from '../firebaseApp';
-import { LOGIN_ATTEMPT, LOGIN_ERROR, LOGOUT_ATTEMPT } from './actionTypes';
+import { AUTH_USER, SIGN_OUT_USER, LOGIN_ATTEMPT, LOGIN_ERROR, LOGOUT_ATTEMPT } from './actionTypes';
+import { history } from '../index.js';
+import { createWSClient } from './wsActions';
 
 // export function register(credentials) {
   // return (dispatch) => {
@@ -20,6 +22,43 @@ import { LOGIN_ATTEMPT, LOGIN_ERROR, LOGOUT_ATTEMPT } from './actionTypes';
   //     });
   // }
 // }
+
+export function verifyAuth() {
+  return (dispatch) => {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        user.getIdToken(true)
+          .then((idToken) => {
+            console.log('VERIFY AUTH', user);
+            createWSClient();
+            dispatch(authUser(user.email, idToken, user.emailVerified));
+            return
+          })
+          .then(() => {
+            history.push('/home');
+          });
+      } else {
+        dispatch(signOutUser());
+      }
+    });
+  }
+}
+
+export function authUser(email, token, verified) {
+  console.log('AUTH_USER')
+  return {
+    type: AUTH_USER,
+    email: email,
+    token: token,
+    verified: verified
+  }
+}
+
+export function signOutUser() {
+  return {
+    type: SIGN_OUT_USER
+  }
+}
 
 export function login(credentials) {
   return (dispatch) => {

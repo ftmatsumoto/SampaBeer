@@ -1,4 +1,4 @@
-import { LOGIN_ATTEMPT, LOGIN_SUCCESSFUL, LOGIN_ERROR, LOGOUT_ATTEMPT, LOGOUT_SUCCESSFUL, REGISTER_ATTEMPT, REGISTER_ERROR } from '../actions/actionTypes';
+import { AUTH_USER, SIGN_OUT_USER, LOGIN_ATTEMPT, LOGIN_SUCCESSFUL, LOGIN_ERROR, LOGOUT_ATTEMPT, LOGOUT_SUCCESSFUL, REGISTER_ATTEMPT, REGISTER_ERROR } from '../actions/actionTypes';
 
 let initialState = {
   authenticated: false
@@ -6,6 +6,21 @@ let initialState = {
 
 export default function authReducers(state = initialState, action) {
   switch (action.type) {
+    case AUTH_USER:
+      return {
+        ...state,
+        authenticated: true,
+        error: null,
+        email: action.email,
+        token: action.token,
+        verified: action.verified
+      }
+    case SIGN_OUT_USER:
+      return {
+        ...state,
+        authenticated: false,
+        error: null
+      }
     case REGISTER_ATTEMPT:
       return {
         ...state,
