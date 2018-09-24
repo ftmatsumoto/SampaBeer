@@ -35,7 +35,7 @@ export function sendRegisterForm(data, socket) {
 
 export function getValidationState(data, socket) {
   return (dispatch) => {
-    console.log(data);
+    // console.log(data);
     let fullname = data.fullname;
     let email = data.email;
     let telephone = data.telephone;

@@ -29,24 +29,24 @@ class Sidebar extends Component {
           >
             <List component="nav">
               <ListItem button component={Link} to="/home/perfil">
-                <ListItemIcon>
+                {/*<ListItemIcon>
                   <DraftsIcon />
-                </ListItemIcon>
+                </ListItemIcon>*/}
                 <ListItemText primary="Perfil" />
               </ListItem>
             </List>
             <Divider />
             <List component="nav">
               <ListItem button component={Link} to="/home/cervejas">
-                <ListItemIcon>
+                {/*<ListItemIcon>
                   <InboxIcon />
-                </ListItemIcon>
+                </ListItemIcon>*/}
                 <ListItemText primary="Cervejas" />
               </ListItem>
               <ListItem button component={Link} to="/home/carrinho">
-                <ListItemIcon>
+                {/*<ListItemIcon>
                   <DraftsIcon />
-                </ListItemIcon>
+                </ListItemIcon>*/}
                 <ListItemText primary="Carrinho" />
               </ListItem>
             </List>

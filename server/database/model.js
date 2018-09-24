@@ -10,12 +10,16 @@ const userSchema = new Schema({
   updated: {type: Date, required: true, default: Date.now},
   indicated_by: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   allowed_by_spbeer: {type: Boolean, required: true, default: false},
+  shopping_cart: [
+
+  ],
   orders: [
     new Schema({
       _id: mongoose.Schema.Types.ObjectId,
       delivery_address: {type: String, required: true, unique: false},
       delivery_cost: {type: Number, required: true},
       delivered: {type: Boolean, required: true, default: false},
+      discount_code: {type: String, required: false, unique: false},
       amount_discount: {type: Number, required: false, default: 0},
       percentage_discount: {type: Number, required: false, default: 0},
       products: [
@@ -65,6 +69,7 @@ const productSchema = new Schema({
   abv: {type: Number, required: true},
   ibu: {type: Number, required: true},
   description: {type: String, required: true, unique: false},
+  quantity: {type: Number, required: true, default: 0},
   // image: {}
 });
 let Product = mongoose.model('Product', productSchema);

@@ -29,7 +29,7 @@ export function verifyAuth() {
       if (user) {
         user.getIdToken(true)
           .then((idToken) => {
-            console.log('VERIFY AUTH', user);
+            // console.log('VERIFY AUTH', user);
             // createWSClient();
             dispatch(authUser(user.email, idToken, user.emailVerified));
             return
@@ -45,7 +45,7 @@ export function verifyAuth() {
 }
 
 export function authUser(email, token, verified) {
-  console.log('AUTH_USER')
+  // console.log('AUTH_USER');
   return {
     type: AUTH_USER,
     email: email,
