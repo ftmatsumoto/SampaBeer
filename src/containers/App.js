@@ -18,7 +18,7 @@ import { createWSClient } from '../actions/wsActions';
 // let unsubscribe;
 
 class App extends Component {
-  // componentDidMount() {
+  componentDidMount() {
   //   const { dispatch, history } = this.props;
   //   console.log(this.props.authenticated);
   //   // history.push('/login');
@@ -53,11 +53,12 @@ class App extends Component {
   //       });
   //     }
   //   });
-  // }
+    this.props.createWSClient();
+  }
 
-  // componentWillUnmount() {
-  //   unsubscribe()
-  // }
+  componentWillUnmount() {
+    // unsubscribe()
+  }
 
   render() {
     return (
