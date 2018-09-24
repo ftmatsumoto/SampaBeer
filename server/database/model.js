@@ -7,9 +7,9 @@ const userSchema = new Schema({
   email: {type: String, required: true, unique: true},
   birthday: {type: Date, required: true, unique: false},
   telephone: {type: String, required: true, unique: false},
-  updated: {type: Date, default: Date.now},
+  updated: {type: Date, required: true, default: Date.now},
   indicated_by: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  allowed_by_spbeer: {type: Boolean, required: true},
+  allowed_by_spbeer: {type: Boolean, required: true, default: false},
   orders: [
     new Schema({
       _id: mongoose.Schema.Types.ObjectId,
@@ -37,8 +37,8 @@ const userSchema = new Schema({
     })
   ],
   subscriber: {
-    type_of_subscription: {type: String, required: true},
-    expiration: {type: Date, required: true},
+    type_of_subscription: {type: String, required: false},
+    expiration: {type: Date, required: true, default: Date.now},
     // auto_renew: {type: Boolean, required: true}
   },
   uid: { type: String }
