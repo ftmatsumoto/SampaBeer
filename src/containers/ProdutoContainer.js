@@ -22,7 +22,7 @@ class ProdutoContainer extends Component {
         alcool: '5%',
         descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et dolor eu nunc aliquet blandit. Nullam consequat diam in magna egestas, at consequat tellus accumsan. Duis vehicula id metus et ornare. Sed eget egestas leo. Quisque hendrerit enim a tellus sodales, in lobortis nulla consequat. Quisque consectetur urna ligula, sed iaculis nunc scelerisque eget. Sed condimentum felis eu efficitur hendrerit. Nulla facilisi. Cras ac ex arcu.',
         volume: '600ml',
-        img: 'http://via.placeholder.com/350x150'
+        img: 'http://via.placeholder.com/350.png'
       },
       {
         nome: 'BBB',
@@ -31,7 +31,7 @@ class ProdutoContainer extends Component {
         alcool: '6%',
         descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et dolor eu nunc aliquet blandit. Nullam consequat diam in magna egestas, at consequat tellus accumsan. Duis vehicula id metus et ornare. Sed eget egestas leo. Quisque hendrerit enim a tellus sodales, in lobortis nulla consequat. Quisque consectetur urna ligula, sed iaculis nunc scelerisque eget. Sed condimentum felis eu efficitur hendrerit. Nulla facilisi. Cras ac ex arcu.',
         volume: '600ml',
-        img: 'http://via.placeholder.com/350x150'
+        img: 'http://via.placeholder.com/350.png'
       },
       {
         nome: 'CCC',
@@ -40,7 +40,7 @@ class ProdutoContainer extends Component {
         alcool: '7%',
         descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et dolor eu nunc aliquet blandit. Nullam consequat diam in magna egestas, at consequat tellus accumsan. Duis vehicula id metus et ornare. Sed eget egestas leo. Quisque hendrerit enim a tellus sodales, in lobortis nulla consequat. Quisque consectetur urna ligula, sed iaculis nunc scelerisque eget. Sed condimentum felis eu efficitur hendrerit. Nulla facilisi. Cras ac ex arcu.',
         volume: '600ml',
-        img: 'http://via.placeholder.com/350x150'
+        img: 'http://via.placeholder.com/350.png'
       },
       {
         nome: 'DDD',
@@ -49,7 +49,7 @@ class ProdutoContainer extends Component {
         alcool: '8%',
         descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et dolor eu nunc aliquet blandit. Nullam consequat diam in magna egestas, at consequat tellus accumsan. Duis vehicula id metus et ornare. Sed eget egestas leo. Quisque hendrerit enim a tellus sodales, in lobortis nulla consequat. Quisque consectetur urna ligula, sed iaculis nunc scelerisque eget. Sed condimentum felis eu efficitur hendrerit. Nulla facilisi. Cras ac ex arcu.',
         volume: '600ml',
-        img: 'http://via.placeholder.com/350x150'
+        img: 'http://via.placeholder.com/350.png'
       },
       {
         nome: 'EEE',
@@ -58,7 +58,7 @@ class ProdutoContainer extends Component {
         alcool: '9%',
         descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et dolor eu nunc aliquet blandit. Nullam consequat diam in magna egestas, at consequat tellus accumsan. Duis vehicula id metus et ornare. Sed eget egestas leo. Quisque hendrerit enim a tellus sodales, in lobortis nulla consequat. Quisque consectetur urna ligula, sed iaculis nunc scelerisque eget. Sed condimentum felis eu efficitur hendrerit. Nulla facilisi. Cras ac ex arcu.',
         volume: '600ml',
-        img: 'http://via.placeholder.com/350x150'
+        img: 'http://via.placeholder.com/350.png'
       },
       {
         nome: 'FFF',
@@ -67,7 +67,7 @@ class ProdutoContainer extends Component {
         alcool: '10%',
         descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et dolor eu nunc aliquet blandit. Nullam consequat diam in magna egestas, at consequat tellus accumsan. Duis vehicula id metus et ornare. Sed eget egestas leo. Quisque hendrerit enim a tellus sodales, in lobortis nulla consequat. Quisque consectetur urna ligula, sed iaculis nunc scelerisque eget. Sed condimentum felis eu efficitur hendrerit. Nulla facilisi. Cras ac ex arcu.',
         volume: '600ml',
-        img: 'http://via.placeholder.com/350x150'
+        img: 'http://via.placeholder.com/350.png'
       }
     ];
 
@@ -76,14 +76,30 @@ class ProdutoContainer extends Component {
       flexWrap: "wrap",
       alignItems: "center"
     }
+    let cardStyles = this.props.browser.lessThan.medium ?
+    {
+      width: "50%"
+    } : {
+      width: "25%"
+    }
+    let headerStyles = {
+      padding: "10px"
+    }
+    let descriptionStyles = {
+      padding: "10px"
+    }
     return (
       <div className="ProdutoContainer" style={styles}>
         {cervejas.map((cerveja, i) => {
           return (
-            <div className="ProdutoCard">
-              <img src={cerveja.img}/>
+            <div className="ProdutoCard" style={cardStyles} >
+              <div className="ProdutoCard-header" style={headerStyles}>
+                <img src={cerveja.img} style={{maxWidth: "100%"}}/>
+              </div>
+              <div className="ProdutoCard-description" style={descriptionStyles}>
+                <span>Nome: {cerveja.nome}</span>
+              </div>
               {/*<ul>
-                <li>Nome: {cerveja.nome}</li>
                 <li>Preço: {cerveja.preco}</li>
                 <li>Tipo: {cerveja.tipo}</li>
                 <li>Alcool: {cerveja.alcool}</li>
