@@ -1,7 +1,7 @@
 import { auth, googleProvider } from '../firebaseApp';
 import { AUTH_USER, SIGN_OUT_USER, LOGIN_ATTEMPT, LOGIN_ERROR, LOGOUT_ATTEMPT } from './actionTypes';
 import { history } from '../index.js';
-import { createWSClient } from './wsActions';
+// import { createWSClient } from './wsActions';
 
 // export function register(credentials) {
   // return (dispatch) => {
