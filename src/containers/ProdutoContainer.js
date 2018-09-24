@@ -5,15 +5,6 @@ import { withRouter } from 'react-router-dom';
 
 class ProdutoContainer extends Component {
   render() {
-    // let message = `PRODUTO - The viewport's current media type is: ${this.props.browser.mediaType}.`
-
-    // if (this.props.browser.lessThan.small) {
-    //     message += 'Secret message for viewports smaller than than the "small" breakpoint!'
-    // } else if (this.props.browser.lessThan.medium) {
-    //     message += 'Secret message for viewports between the "small" and "medium" breakpoints!'
-    // } else {
-    //     message += 'Message for viewports greater than the "medium" breakpoint.'
-    // }
     let cervejas = [
       {
         nome: 'AAA',
@@ -76,12 +67,16 @@ class ProdutoContainer extends Component {
       flexWrap: "wrap",
       alignItems: "center"
     }
-    let cardStyles = this.props.browser.lessThan.medium ?
+    let cardStyles = this.props.browser.lessThan.small ?
     {
-      width: "50%"
-    } : {
-      width: "25%"
-    }
+      width: "100%"
+    } :
+    this.props.browser.lessThan.medium ?
+      {
+        width: "50%"
+      } : {
+        width: "25%"
+      }
     let headerStyles = {
       padding: "10px"
     }
@@ -99,14 +94,8 @@ class ProdutoContainer extends Component {
               <div className="ProdutoCard-description" style={descriptionStyles}>
                 <span>Nome: {cerveja.nome}</span>
               </div>
-              {/*<ul>
-                <li>Preço: {cerveja.preco}</li>
-                <li>Tipo: {cerveja.tipo}</li>
-                <li>Alcool: {cerveja.alcool}</li>
-                <li>Descrição: {cerveja.descricao}</li>
-                <li>Volume: {cerveja.volume}</li>
-              </ul>*/}
             </div>
+
           )
         })}
       </div>
