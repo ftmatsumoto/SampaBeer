@@ -89,7 +89,7 @@ class ProdutoContainer extends Component {
           return (
             <div className="ProdutoCard" style={cardStyles} >
               <div className="ProdutoCard-header" style={headerStyles}>
-                <img src={cerveja.img} style={{maxWidth: "100%"}}/>
+                <img src={cerveja.img} style={{maxWidth: "100%"}} alt="Cerveja"/>
               </div>
               <div className="ProdutoCard-description" style={descriptionStyles}>
                 <span>Nome: {cerveja.nome}</span>
